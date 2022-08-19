@@ -1,0 +1,32 @@
+# greets user
+curl -i -X GET localhost:8080/ping
+
+# List All Packages
+curl -i -X GET localhost:8080/listAll
+
+# Add new book package
+curl -i -H "Content Type: application/json" -X POST -d "{
+        "type":"book",
+        "name":"wonderland",
+        "notes":"ok",
+        "deliveryDate":"1234-06-23T12:21",
+        "author":"rey",
+        "price":67.0,
+        "weight":43.0,
+        "isDelivered":false,
+        }" localhost:8080/addPackage/book
+
+# Remove Package with id=1
+curl -i -X GET localhost:8080/removePackage/1
+
+# List Overdue Packages
+curl -i -X GET localhost:8080/listOverduePackage
+
+# List Upcoming Packages
+curl -i -X GET localhost:8080/listUpcomingPackage
+
+# Mark Package with id=1 as Delivered
+curl -i -X GET localhost:8080/markPackageAsDelivered/1
+
+# Exit server
+curl -i -X GET localhost:8080/exit
